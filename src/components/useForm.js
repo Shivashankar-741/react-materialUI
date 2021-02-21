@@ -28,14 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-export const Form=(props)=> {
-
-  const classes=useStyles()
-  return (
-    <form className={classes.root}>
-        {props.children}
-    </form>
-  )
-}
-
+export const Form = (props) => {
+  const classes = useStyles();
+  return <form className={classes.root}>{props.children}</form>;
+};

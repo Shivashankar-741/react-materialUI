@@ -23,7 +23,6 @@ const initialFValues = {
 
 const EmployeeForm = () => {
   const { values, setValues, handleInputChange } = useForm(initialFValues);
-  console.log(values);
 
   return (
     <Form>
@@ -38,7 +37,19 @@ const EmployeeForm = () => {
           <Controls.Input
             name="email"
             label="Email"
-            value={values.fullName}
+            value={values.email}
+            onChange={handleInputChange}
+          />
+          <Controls.Input
+            name="mobile"
+            label="Mobile"
+            value={values.mobile}
+            onChange={handleInputChange}
+          />
+          <Controls.Input
+            name="city"
+            label="City"
+            value={values.city}
             onChange={handleInputChange}
           />
         </Grid>
@@ -58,12 +69,22 @@ const EmployeeForm = () => {
             onChange={handleInputChange}
             options={employeeService.getDepartmentCollection()}
           />
+          <Controls.DatePicker
+            name="hireDate"
+            label="Hire Date"
+            value={values.hireDate}
+            onChange={handleInputChange}
+          />
           <Controls.Checkbox
             name="isPermanent"
             label="permanent Employee"
             value={values.isPermanent}
             onChange={handleInputChange}
           />
+          <div>
+            <Controls.Button text="Submit" type="submit" />
+            <Controls.Button text="Reset" color="default" />
+          </div>
         </Grid>
       </Grid>
     </Form>
