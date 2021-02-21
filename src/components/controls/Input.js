@@ -10,6 +10,8 @@ const Input = (props) => {
       name={name}
       value={value}
       onChange={onChange}
+      error
+      helperText="validation error"
     />
   );
 };

@@ -22,7 +22,18 @@ const initialFValues = {
 };
 
 const EmployeeForm = () => {
-  const { values, setValues, handleInputChange } = useForm(initialFValues);
+  const validate = () => {
+    let temp = {};
+    temp.fullName = values.fullName ? "" : "This field is required";
+    temp.email = /$|.+@.+..+/.test(values.email) ? "" : "Email is not valid";
+    temp.mobile = values.mobile.length > 9 ? "" : "Minimum 10 numbers required";
+    temp.departmentId = values.departmentId.length !== 0 ? "" : "This field is required";
+    setErrors({
+      ...temp,
+    });
+  };
+
+  const { values, setValues, errors, setErrors, handleInputChange } = useForm(initialFValues);
 
   return (
     <Form>
